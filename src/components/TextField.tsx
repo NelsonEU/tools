@@ -8,9 +8,10 @@ type Props = {
   onChange?: (value: string) => void
   error?: string
   placeholder?: string
+  rows?: number
 }
 
-export function TextField({ label, value, onChange, error, placeholder }: Props) {
+export function TextField({ label, value, onChange, error, placeholder, rows = 10 }: Props) {
   const id = useId()
 
   return (
@@ -28,6 +29,7 @@ export function TextField({ label, value, onChange, error, placeholder }: Props)
         onChange={onChange && ((e) => onChange(e.target.value))}
         readOnly={!onChange}
         placeholder={placeholder}
+        rows={rows}
         spellCheck={false}
         aria-invalid={!!error}
         aria-describedby={error ? `${id}-error` : undefined}

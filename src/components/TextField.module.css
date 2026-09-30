@@ -19,7 +19,6 @@
 
 .textarea {
   width: 100%;
-  min-height: 240px;
   padding: 10px 12px;
   border: 1px solid var(--border);
   border-radius: 8px;
