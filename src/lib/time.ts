@@ -17,10 +17,8 @@ export function formatRelative(date: Date, now: Date): string {
   return relativeFormat.format(Math.round(seconds / size), unit)
 }
 
-const dateFormat = new Intl.DateTimeFormat('en-GB', { dateStyle: 'medium', timeStyle: 'long' })
-
-export function formatDate(date: Date): string {
-  return dateFormat.format(date)
+export function formatDate(date: Date, timeZone?: string): string {
+  return new Intl.DateTimeFormat('en-GB', { dateStyle: 'full', timeStyle: 'long', timeZone }).format(date)
 }
 
 export function useNow(intervalMs = 1000): Date {

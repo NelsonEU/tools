@@ -1,0 +1,9 @@
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.count {
+  width: 90px;
+}

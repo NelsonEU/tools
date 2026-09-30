@@ -10,4 +10,7 @@ export type Tool = {
 export const tools: Tool[] = [
   { path: 'encode', name: 'Base64 / URL / HTML', category: 'Encoding', component: lazy(() => import('./encode/EncodeTool')) },
   { path: 'jwt', name: 'JWT decoder', category: 'Encoding', component: lazy(() => import('./jwt/JwtTool')) },
+  { path: 'hash', name: 'Hash generator', category: 'Encoding', component: lazy(() => import('./hash/HashTool')) },
+  { path: 'ids', name: 'ID generator', category: 'Generators', component: lazy(() => import('./ids/IdTool')) },
+  { path: 'timestamp', name: 'Timestamp converter', category: 'Time', component: lazy(() => import('./timestamp/TimestampTool')) },
 ]

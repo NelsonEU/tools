@@ -1,0 +1,41 @@
+.inputs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.grow {
+  flex: 0 1 460px;
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+}
+
+.input {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--mono);
+}
+
+.hint,
+.error {
+  margin: 0;
+  font-size: 13px;
+}
+
+.hint {
+  color: var(--muted);
+}
+
+.error {
+  color: var(--danger);
+}
