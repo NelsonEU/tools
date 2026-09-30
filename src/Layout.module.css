@@ -26,6 +26,10 @@
   text-decoration: none;
 }
 
+.caret {
+  color: var(--accent);
+}
+
 .category {
   margin: 0 0 4px;
   padding: 0 8px;

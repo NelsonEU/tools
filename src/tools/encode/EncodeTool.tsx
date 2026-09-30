@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { Panes } from '../../components/Panes'
 import { SegmentedControl } from '../../components/SegmentedControl'
 import { TextField } from '../../components/TextField'
-import { ToolPage } from '../../components/ToolPage'
 import { codecs } from './codecs'
 
 export default function EncodeTool() {
@@ -35,15 +34,12 @@ export default function EncodeTool() {
   }
 
   return (
-    <ToolPage
-      title="Encode / decode"
-      description="Base64, URL percent-encoding and HTML entities. Type in either side, the other updates."
-    >
+    <>
       <SegmentedControl label="Encoding" options={codecs.map((c) => c.name)} value={codec.name} onChange={changeCodec} />
       <Panes>
         <TextField label="Text" value={plain} onChange={changePlain} placeholder="Plain text" />
         <TextField label={codec.name} value={encoded} onChange={changeEncoded} error={error} placeholder="Encoded" />
       </Panes>
-    </ToolPage>
+    </>
   )
 }

@@ -1,20 +1,16 @@
-import type { ReactNode } from 'react'
+import { Suspense, type ReactNode } from 'react'
+import type { Tool } from '../tools/registry'
 import styles from './ToolPage.module.css'
 
-type Props = {
-  title: string
-  description: string
-  children: ReactNode
-}
-
-export function ToolPage({ title, description, children }: Props) {
+export function ToolPage({ tool, children }: { tool: Tool; children: ReactNode }) {
   return (
     <article className={styles.page}>
+      <title>{`${tool.name} · tools`}</title>
       <header>
-        <h1>{title}</h1>
-        <p className={styles.description}>{description}</p>
+        <h1>{tool.name}</h1>
+        <p className={styles.description}>{tool.description}</p>
       </header>
-      {children}
+      <Suspense fallback={null}>{children}</Suspense>
     </article>
   )
 }

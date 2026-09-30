@@ -2,7 +2,6 @@ import { useMemo, useState } from 'react'
 import { Button } from '../../components/Button'
 import { Field, FieldRow } from '../../components/Field'
 import { TimeZoneSelect } from '../../components/TimeZoneSelect'
-import { ToolPage } from '../../components/ToolPage'
 import { ValueList } from '../../components/ValueList'
 import { formatDate, formatRelative, localTimeZone, useNow } from '../../lib/time'
 import { formatIsoInZone, parseInstant, type ParsedInstant } from './timestamp'
@@ -28,10 +27,7 @@ export default function TimestampTool() {
   const date = parsed?.date
 
   return (
-    <ToolPage
-      title="Timestamp converter"
-      description="Unix timestamps in seconds, milliseconds, microseconds or nanoseconds (detected from the size), or any ISO 8601 date."
-    >
+    <>
       <FieldRow>
         <Field
           id="ts-input"
@@ -70,6 +66,6 @@ export default function TimestampTool() {
           ]}
         />
       )}
-    </ToolPage>
+    </>
   )
 }

@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { Field, FieldRow } from '../../components/Field'
 import { TimeZoneSelect } from '../../components/TimeZoneSelect'
-import { ToolPage } from '../../components/ToolPage'
 import { formatDate, formatRelative, localTimeZone, useNow } from '../../lib/time'
 import { explainCron, type CronExplanation } from './cron'
 import styles from './CronTool.module.css'
@@ -24,7 +23,7 @@ export default function CronTool() {
   }
 
   return (
-    <ToolPage title="Cron explainer" description="Describes a cron expression in plain English and lists its next runs.">
+    <>
       <FieldRow>
         <Field
           id="cron-expression"
@@ -62,6 +61,6 @@ export default function CronTool() {
           </section>
         </>
       )}
-    </ToolPage>
+    </>
   )
 }

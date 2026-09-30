@@ -1,7 +1,6 @@
 import { useMemo, useState } from 'react'
 import { Panes } from '../../components/Panes'
 import { TextField } from '../../components/TextField'
-import { ToolPage } from '../../components/ToolPage'
 import { formatDate, formatRelative, useNow } from '../../lib/time'
 import { decodeJwt, timeClaims, tokenStatus, type DecodedJwt, type TokenStatus } from './jwt'
 import styles from './JwtTool.module.css'
@@ -31,10 +30,7 @@ export default function JwtTool() {
   const claims = jwt ? timeClaims(jwt.payload) : []
 
   return (
-    <ToolPage
-      title="JWT decoder"
-      description="Decodes the header and payload locally, nothing leaves your browser. The signature is not verified."
-    >
+    <>
       <Panes>
         <TextField label="Token" value={token} onChange={setToken} error={error} placeholder="eyJhbGciOi…" rows={14} />
         {jwt && status && (
@@ -61,6 +57,6 @@ export default function JwtTool() {
           </div>
         )}
       </Panes>
-    </ToolPage>
+    </>
   )
 }

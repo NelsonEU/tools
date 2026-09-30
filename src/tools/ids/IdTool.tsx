@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { Button } from '../../components/Button'
 import { SegmentedControl } from '../../components/SegmentedControl'
 import { TextField } from '../../components/TextField'
-import { ToolPage } from '../../components/ToolPage'
 import { generators, type IdGenerator } from './generators'
 import styles from './IdTool.module.css'
 
@@ -28,10 +27,7 @@ export default function IdTool() {
   }
 
   return (
-    <ToolPage
-      title="ID generator"
-      description="UUID v4 (random), UUID v7 and ULID (time-ordered, sort by creation), NanoID (short, URL-safe)."
-    >
+    <>
       <SegmentedControl label="ID type" options={generators.map((g) => g.name)} value={generator.name} onChange={changeGenerator} />
       <div className={styles.controls}>
         <label htmlFor="id-count">Count</label>
@@ -47,6 +43,6 @@ export default function IdTool() {
         <Button onClick={() => setIds(generateMany(generator, count))}>Regenerate</Button>
       </div>
       <TextField label={generator.name} value={ids.join('\n')} rows={Math.min(count, 20)} />
-    </ToolPage>
+    </>
   )
 }

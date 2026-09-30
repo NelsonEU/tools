@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { Checkbox } from '../../components/Checkbox'
 import { Field } from '../../components/Field'
 import { TextField } from '../../components/TextField'
-import { ToolPage } from '../../components/ToolPage'
 import { matchLimit, segments } from './regex'
 import styles from './RegexTool.module.css'
 import { useRegex } from './useRegex'
@@ -28,10 +27,7 @@ export default function RegexTool() {
   const count = result?.matches.length ?? 0
 
   return (
-    <ToolPage
-      title="Regex tester"
-      description="JavaScript regular expressions with match highlighting and capture groups. Runs in a background thread and stops runaway patterns after 1 second."
-    >
+    <>
       <Field id="regex-pattern" label="Pattern" error={error}>
         <div className={styles.pattern}>
           <span className={styles.slash}>/</span>
@@ -95,6 +91,6 @@ export default function RegexTool() {
           )}
         </>
       )}
-    </ToolPage>
+    </>
   )
 }

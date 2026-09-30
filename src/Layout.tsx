@@ -1,16 +1,14 @@
 import { Suspense } from 'react'
 import { Link, NavLink, Outlet } from 'react-router'
 import styles from './Layout.module.css'
-import { tools } from './tools/registry'
-
-const categories = [...new Set(tools.map((t) => t.category))]
+import { categories, tools } from './tools/registry'
 
 export function Layout() {
   return (
     <div className={styles.shell}>
       <nav className={styles.sidebar}>
         <Link to="/" className={styles.brand}>
-          tools
+          tools<span className={styles.caret}>_</span>
         </Link>
         {categories.map((category) => (
           <section key={category}>
