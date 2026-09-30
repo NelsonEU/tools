@@ -1,0 +1,38 @@
+import { useMemo, useState } from 'react'
+import { Panes } from '../../components/Panes'
+import { SegmentedControl } from '../../components/SegmentedControl'
+import { TextField } from '../../components/TextField'
+import { ToolPage } from '../../components/ToolPage'
+import { formatJson, indents, type Indent } from './format'
+import styles from './JsonTool.module.css'
+
+export default function JsonTool() {
+  const [input, setInput] = useState('')
+  const [indent, setIndent] = useState<Indent>('2 spaces')
+  const [sorted, setSorted] = useState(false)
+
+  const result = useMemo((): { output: string; error?: string } => {
+    if (!input.trim()) return { output: '' }
+    try {
+      return { output: formatJson(input, indent, sorted) }
+    } catch (e) {
+      return { output: '', error: (e as Error).message }
+    }
+  }, [input, indent, sorted])
+
+  return (
+    <ToolPage title="JSON formatter" description="Validates, pretty-prints or minifies JSON. Numbers are kept exactly as written.">
+      <div className={styles.options}>
+        <SegmentedControl label="Indentation" options={indents} value={indent} onChange={(v) => setIndent(v as Indent)} />
+        <label className={styles.checkbox}>
+          <input type="checkbox" checked={sorted} onChange={(e) => setSorted(e.target.checked)} />
+          Sort keys
+        </label>
+      </div>
+      <Panes>
+        <TextField label="Input" value={input} onChange={setInput} error={result.error} placeholder='{"paste": "JSON here"}' rows={20} />
+        <TextField label="Output" value={result.output} rows={20} />
+      </Panes>
+    </ToolPage>
+  )
+}

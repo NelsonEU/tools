@@ -1,9 +1,9 @@
 import { useState } from 'react'
+import { Panes } from '../../components/Panes'
 import { SegmentedControl } from '../../components/SegmentedControl'
 import { TextField } from '../../components/TextField'
 import { ToolPage } from '../../components/ToolPage'
 import { codecs } from './codecs'
-import styles from './EncodeTool.module.css'
 
 export default function EncodeTool() {
   const [codec, setCodec] = useState(codecs[0])
@@ -40,10 +40,10 @@ export default function EncodeTool() {
       description="Base64, URL percent-encoding and HTML entities. Type in either side, the other updates."
     >
       <SegmentedControl label="Encoding" options={codecs.map((c) => c.name)} value={codec.name} onChange={changeCodec} />
-      <div className={styles.panes}>
+      <Panes>
         <TextField label="Text" value={plain} onChange={changePlain} placeholder="Plain text" />
         <TextField label={codec.name} value={encoded} onChange={changeEncoded} error={error} placeholder="Encoded" />
-      </div>
+      </Panes>
     </ToolPage>
   )
 }

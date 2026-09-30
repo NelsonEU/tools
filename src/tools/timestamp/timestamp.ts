@@ -44,6 +44,3 @@ export function formatIsoInZone(date: Date, timeZone: string): string {
   const offset = parts.timeZoneName === 'GMT' ? '+00:00' : parts.timeZoneName.slice(3)
   return `${parts.year}-${parts.month}-${parts.day}T${parts.hour}:${parts.minute}:${parts.second}.${parts.fractionalSecond}${offset}`
 }
-
-// Some browsers omit UTC from the supported list
-export const timeZones = ['UTC', ...Intl.supportedValuesOf('timeZone').filter((z) => z !== 'UTC')]

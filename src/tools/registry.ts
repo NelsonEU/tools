@@ -13,4 +13,6 @@ export const tools: Tool[] = [
   { path: 'hash', name: 'Hash generator', category: 'Encoding', component: lazy(() => import('./hash/HashTool')) },
   { path: 'ids', name: 'ID generator', category: 'Generators', component: lazy(() => import('./ids/IdTool')) },
   { path: 'timestamp', name: 'Timestamp converter', category: 'Time', component: lazy(() => import('./timestamp/TimestampTool')) },
+  { path: 'cron', name: 'Cron explainer', category: 'Time', component: lazy(() => import('./cron/CronTool')) },
+  { path: 'json', name: 'JSON formatter', category: 'Data', component: lazy(() => import('./json/JsonTool')) },
 ]

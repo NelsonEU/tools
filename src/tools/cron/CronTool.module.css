@@ -1,0 +1,78 @@
+.inputs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.grow {
+  flex: 0 1 460px;
+}
+
+.expression {
+  font-family: var(--mono);
+  font-size: 16px;
+}
+
+.hint,
+.error {
+  margin: 0;
+  font-size: 13px;
+}
+
+.hint {
+  color: var(--muted);
+  font-family: var(--mono);
+  white-space: pre-wrap;
+}
+
+.error {
+  color: var(--danger);
+}
+
+.description {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.heading {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.runs {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.runs li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 16px;
+  padding: 8px 12px;
+  font-size: 14px;
+}
+
+.runs li + li {
+  border-top: 1px solid var(--border);
+}
+
+.relative {
+  color: var(--muted);
+}

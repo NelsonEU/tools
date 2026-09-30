@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { Panes } from '../../components/Panes'
 import { TextField } from '../../components/TextField'
 import { ToolPage } from '../../components/ToolPage'
 import { formatDate, formatRelative, useNow } from '../../lib/time'
@@ -34,7 +35,7 @@ export default function JwtTool() {
       title="JWT decoder"
       description="Decodes the header and payload locally, nothing leaves your browser. The signature is not verified."
     >
-      <div className={styles.layout}>
+      <Panes>
         <TextField label="Token" value={token} onChange={setToken} error={error} placeholder="eyJhbGciOi…" rows={14} />
         {jwt && status && (
           <div className={styles.decoded}>
@@ -59,7 +60,7 @@ export default function JwtTool() {
             <TextField label="Signature (not verified)" value={jwt.signature} rows={2} />
           </div>
         )}
-      </div>
+      </Panes>
     </ToolPage>
   )
 }

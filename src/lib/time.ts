@@ -29,3 +29,8 @@ export function useNow(intervalMs = 1000): Date {
   }, [intervalMs])
   return now
 }
+
+// Some browsers omit UTC from the supported list
+export const timeZones = ['UTC', ...Intl.supportedValuesOf('timeZone').filter((z) => z !== 'UTC')]
+
+export const localTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone

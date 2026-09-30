@@ -2,11 +2,10 @@ import { useMemo, useState } from 'react'
 import { Button } from '../../components/Button'
 import { ToolPage } from '../../components/ToolPage'
 import { ValueList } from '../../components/ValueList'
-import { formatDate, formatRelative, useNow } from '../../lib/time'
-import { formatIsoInZone, parseInstant, timeZones, type ParsedInstant } from './timestamp'
+import { formatDate, formatRelative, localTimeZone, timeZones, useNow } from '../../lib/time'
+import { formatIsoInZone, parseInstant, type ParsedInstant } from './timestamp'
 import styles from './TimestampTool.module.css'
 
-const localZone = Intl.DateTimeFormat().resolvedOptions().timeZone
 const nowSeconds = () => String(Math.floor(Date.now() / 1000))
 
 export default function TimestampTool() {
@@ -67,7 +66,7 @@ export default function TimestampTool() {
             { label: 'ISO 8601 (UTC)', value: date.toISOString() },
             ...(zone === 'UTC' ? [] : [{ label: `ISO 8601 (${zone})`, value: formatIsoInZone(date, zone) }]),
             { label: zone, value: formatDate(date, zone) },
-            { label: `Local (${localZone})`, value: formatDate(date) },
+            { label: `Local (${localTimeZone})`, value: formatDate(date) },
             { label: 'Relative', value: formatRelative(date, now) },
           ]}
         />
