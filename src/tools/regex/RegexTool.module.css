@@ -1,0 +1,82 @@
+.pattern {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--mono);
+}
+
+.pattern input {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--mono);
+  font-size: 15px;
+}
+
+.slash {
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.flags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+}
+
+.summary {
+  margin: 0;
+  font-weight: 600;
+}
+
+.preview {
+  margin: 0;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.preview mark {
+  border-radius: 3px;
+  background: var(--highlight);
+  color: inherit;
+}
+
+.matches {
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.matches th,
+.matches td {
+  padding: 6px 16px 6px 0;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.matches th {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.matches code {
+  font-family: var(--mono);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.groupName {
+  font-family: var(--mono);
+  color: var(--muted);
+}
+
+.unmatched {
+  color: var(--muted);
+  font-style: italic;
+}

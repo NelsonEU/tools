@@ -1,8 +1,10 @@
 import { useMemo, useState } from 'react'
 import { Button } from '../../components/Button'
+import { Field, FieldRow } from '../../components/Field'
+import { TimeZoneSelect } from '../../components/TimeZoneSelect'
 import { ToolPage } from '../../components/ToolPage'
 import { ValueList } from '../../components/ValueList'
-import { formatDate, formatRelative, localTimeZone, timeZones, useNow } from '../../lib/time'
+import { formatDate, formatRelative, localTimeZone, useNow } from '../../lib/time'
 import { formatIsoInZone, parseInstant, type ParsedInstant } from './timestamp'
 import styles from './TimestampTool.module.css'
 
@@ -30,9 +32,14 @@ export default function TimestampTool() {
       title="Timestamp converter"
       description="Unix timestamps in seconds, milliseconds, microseconds or nanoseconds (detected from the size), or any ISO 8601 date."
     >
-      <div className={styles.inputs}>
-        <div className={`${styles.field} ${styles.grow}`}>
-          <label htmlFor="ts-input">Timestamp or date</label>
+      <FieldRow>
+        <Field
+          id="ts-input"
+          label="Timestamp or date"
+          error={error}
+          hint={parsed ? `Read as ${parsed.interpretedAs.toLowerCase()}` : `Now: ${Math.floor(now.getTime() / 1000)}`}
+          grow
+        >
           <div className={styles.row}>
             <input
               id="ts-input"
@@ -45,19 +52,11 @@ export default function TimestampTool() {
             />
             <Button onClick={() => setInput(nowSeconds())}>Now</Button>
           </div>
-          <p className={error ? styles.error : styles.hint}>
-            {error ?? (parsed ? `Read as ${parsed.interpretedAs.toLowerCase()}` : `Now: ${Math.floor(now.getTime() / 1000)}`)}
-          </p>
-        </div>
-        <div className={styles.field}>
-          <label htmlFor="ts-zone">Time zone</label>
-          <select id="ts-zone" value={zone} onChange={(e) => setZone(e.target.value)}>
-            {timeZones.map((z) => (
-              <option key={z}>{z}</option>
-            ))}
-          </select>
-        </div>
-      </div>
+        </Field>
+        <Field id="ts-zone" label="Time zone">
+          <TimeZoneSelect id="ts-zone" value={zone} onChange={setZone} />
+        </Field>
+      </FieldRow>
       {date && (
         <ValueList
           rows={[

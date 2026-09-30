@@ -15,4 +15,5 @@ export const tools: Tool[] = [
   { path: 'timestamp', name: 'Timestamp converter', category: 'Time', component: lazy(() => import('./timestamp/TimestampTool')) },
   { path: 'cron', name: 'Cron explainer', category: 'Time', component: lazy(() => import('./cron/CronTool')) },
   { path: 'json', name: 'JSON formatter', category: 'Data', component: lazy(() => import('./json/JsonTool')) },
+  { path: 'regex', name: 'Regex tester', category: 'Text', component: lazy(() => import('./regex/RegexTool')) },
 ]

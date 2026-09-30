@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { Checkbox } from '../../components/Checkbox'
 import { Panes } from '../../components/Panes'
 import { SegmentedControl } from '../../components/SegmentedControl'
 import { TextField } from '../../components/TextField'
@@ -24,10 +25,7 @@ export default function JsonTool() {
     <ToolPage title="JSON formatter" description="Validates, pretty-prints or minifies JSON. Numbers are kept exactly as written.">
       <div className={styles.options}>
         <SegmentedControl label="Indentation" options={indents} value={indent} onChange={(v) => setIndent(v as Indent)} />
-        <label className={styles.checkbox}>
-          <input type="checkbox" checked={sorted} onChange={(e) => setSorted(e.target.checked)} />
-          Sort keys
-        </label>
+        <Checkbox label="Sort keys" checked={sorted} onChange={setSorted} />
       </div>
       <Panes>
         <TextField label="Input" value={input} onChange={setInput} error={result.error} placeholder='{"paste": "JSON here"}' rows={20} />
