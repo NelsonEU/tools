@@ -43,6 +43,14 @@ export const tools: Tool[] = [
     component: lazy(() => import('./json/JsonTool')),
   },
   {
+    path: 'convert',
+    name: 'JSON / YAML / TOML',
+    category: 'Data',
+    description: 'Convert between JSON, YAML and TOML. Large integers stay exact; comments are not carried over.',
+    icon: 'yml',
+    component: lazy(() => import('./convert/ConvertTool')),
+  },
+  {
     path: 'regex',
     name: 'Regex tester',
     category: 'Text',
