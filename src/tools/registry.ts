@@ -1,4 +1,4 @@
-import type { ComponentType, LazyExoticComponent } from 'react'
+import { lazy, type ComponentType, type LazyExoticComponent } from 'react'
 
 export type Tool = {
   path: string
@@ -7,4 +7,6 @@ export type Tool = {
   component: LazyExoticComponent<ComponentType>
 }
 
-export const tools: Tool[] = []
+export const tools: Tool[] = [
+  { path: 'encode', name: 'Base64 / URL / HTML', category: 'Encoding', component: lazy(() => import('./encode/EncodeTool')) },
+]
