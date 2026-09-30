@@ -5,7 +5,7 @@ import styles from './Home.module.css'
 export function Home() {
   return (
     <div className={styles.home}>
-      <title>tools</title>
+      <title>Arnaud's tools</title>
       <header className={styles.hero}>
         <h1 className={styles.title}>
           tools<span className={styles.caret}>_</span>
